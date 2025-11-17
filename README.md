@@ -219,13 +219,14 @@ cd ..
 ### 5.7 使用 QEMU 启动系统
 推荐使用如下命令，并参考每行注释理解参数含义：
 ```bash
-qemu-system-x86_64 -kernel bzImage -initrd initramfs.img -drive file=rootfs.img,format=raw -serial mon:stdio
+qemu-system-x86_64 -kernel bzImage -initrd initramfs.img -drive file=rootfs.img,format=raw -serial mon:stdio -nographic
 ```
 参数说明：
 - `-kernel bzImage`：指定Linux内核镜像
 - `-initrd initramfs.img`：指定initramfs镜像
 - `-drive file=rootfs.img,format=raw`：指定虚拟机硬盘镜像，并明确为raw格式，消除QEMU警告
 - `-serial mon:stdio`：将虚拟串口输出和QEMU监控器绑定到当前终端，方便交互和调试
+- `-nographic`: 无头模式。没有GUI的服务器运行时需要。
 
 ---
 
