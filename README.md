@@ -98,7 +98,7 @@ cd busybox-1.36.1
 - 然后编译：
   ```bash
   make clean
-  make defconfig
+  ---make defconfig---
   make -j$(nproc)
   ```
 - 检查 busybox 是否为静态编译：
