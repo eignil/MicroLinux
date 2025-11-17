@@ -198,9 +198,15 @@ cd ..
 - 如果你已经有 bzImage 文件，直接用即可。
 - 如果自己编译：
   ```bash
-  wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.1.tar.xz
-  tar -xf linux-6.1.1.tar.xz
-  cd linux-6.1.1
+  wget  https://mirrors.tuna.tsinghua.edu.cn/kernel/v6.x/linux-6.17.tar.xz
+  wget  https://mirrors.tuna.tsinghua.edu.cn/kernel/v6.x/linux-6.17.tar.sign
+  unxz linux-6.17.tar.xz
+  gpg --locate-keys gregkh@kernel.org
+  gpg --verify linux-6.17.tar.sign
+  ```
+  ```bash
+  tar -xf linux-6.17.tar
+  cd linux-6.17
   make defconfig
   make -j$(nproc)
   # 编译后，bzImage 通常在 arch/x86/boot/bzImage
